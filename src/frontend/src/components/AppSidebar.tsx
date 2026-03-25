@@ -74,7 +74,7 @@ export default function AppSidebar() {
             <BookOpen className="w-5 h-5 text-white" />
           </div>
           <span className="text-[#EAF0FF] font-bold text-base tracking-tight">
-            AttendancePro
+            AttendencePro
           </span>
         </div>
       </div>

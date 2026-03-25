@@ -6,10 +6,10 @@ import { useAuth } from "../context/AuthContext";
 const CREDENTIALS = [
   {
     username: "DON LEE",
-    password: "password-king",
+    password: "king",
     profile: {
       name: "DON LEE",
-      email: "donlee@attendancepro.com",
+      email: "donlee@attendencepro.com",
       role: UserRole.admin,
       facultyId: undefined as string | undefined,
       studentId: undefined as string | undefined,
@@ -18,7 +18,7 @@ const CREDENTIALS = [
   },
   {
     username: "ROBERT LANGER",
-    password: "password-r1234",
+    password: "r1234",
     profile: {
       name: "ROBERT LANGER",
       email: "robert.langer@college.edu",
@@ -30,7 +30,7 @@ const CREDENTIALS = [
   },
   {
     username: "GAUTHAM",
-    password: "password-ramram",
+    password: "ramram",
     profile: {
       name: "GAUTHAM",
       email: "gautham@student.edu",
@@ -82,7 +82,7 @@ export default function LoginPage() {
             <BookOpen className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-[#EAF0FF] tracking-tight">
-            RANGERZZZ
+            AttendencePro
           </h1>
           <p className="text-[#94A3B8] mt-1 text-sm">
             Attendance Management System
@@ -168,10 +168,37 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="text-center text-[#4A6080] text-xs mt-5">
-            DON LEE / ROBERT LANGER / GAUTHAM — use password-king,
-            password-r1234, or password-ramram
-          </p>
+          <div className="mt-5 space-y-1.5">
+            <p className="text-center text-[#4A6080] text-xs font-medium">
+              Demo Credentials
+            </p>
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { user: "DON LEE", pass: "king", role: "Admin" },
+                { user: "ROBERT LANGER", pass: "r1234", role: "Faculty" },
+                { user: "GAUTHAM", pass: "ramram", role: "Student" },
+              ].map((c) => (
+                <button
+                  key={c.role}
+                  type="button"
+                  onClick={() => {
+                    setUsername(c.user);
+                    setPassword(c.pass);
+                    setError("");
+                  }}
+                  className="text-left px-2.5 py-2 bg-[#0B1220] border border-[#223047] rounded-lg hover:border-blue-500/50 transition-colors"
+                >
+                  <p className="text-blue-400 text-[10px] font-semibold">
+                    {c.role}
+                  </p>
+                  <p className="text-[#EAF0FF] text-[10px] truncate">
+                    {c.user}
+                  </p>
+                  <p className="text-[#4A6080] text-[10px]">{c.pass}</p>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         <p className="text-center text-[#4A6080] text-xs mt-6">

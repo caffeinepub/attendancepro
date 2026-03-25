@@ -1,7 +1,8 @@
-import { Bell, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import type { ReactNode } from "react";
 import { useAuth } from "../context/AuthContext";
 import AppSidebar from "./AppSidebar";
+import NotificationPanel from "./NotificationPanel";
 
 export default function Layout({
   children,
@@ -29,13 +30,7 @@ export default function Layout({
             />
           </div>
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              className="relative w-9 h-9 rounded-lg bg-[#151F2E] border border-[#223047] flex items-center justify-center text-[#94A3B8] hover:text-[#EAF0FF] transition-colors"
-            >
-              <Bell className="w-4 h-4" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full" />
-            </button>
+            <NotificationPanel />
             <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold cursor-pointer">
               {initials}
             </div>
